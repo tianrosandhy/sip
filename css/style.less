@@ -1,0 +1,122 @@
+*{margin:0px auto;}
+html, body{height:100%;}
+body{background:#f7f7f7; line-height:1.5em; font-family:'Droid Sans',calibri, sans-serif; min-height:100%;}
+
+/*DEFAULT VALUE*/
+.container{position:relative;}
+blockquote{font-style:italic; font-size:16px;}
+textarea{height:10em!important;}
+@media (max-width:767px){
+	.container{width:95%;}
+}
+.container h2{font-size:15px; letter-spacing:4px; text-align:center; padding-top:90px; padding-bottom:40px;}
+.tombol{border:1px solid #00C5B0; background:transparent; padding:0.6em; color:#00C5B0; margin:5px auto; font-size:18px; .border-radius(5px); text-decoration:none; display:inline-block; .transition(0.3s);
+	&.smaller{padding:0.3em; font-size:16px;}
+	&:hover{text-decoration:none; background:rgba(0,197,176,0.1); color:#00a590;}
+}
+.custom-button{margin:10px auto;padding:8px 16px; .gradient(#00C7B2,#00B9A4); border:#00B9A4; color:#005041; font-weight:bold; .transition(0.3s);
+	&:hover{color:#00C7B2; .gradient(#005041,#004031)}
+}
+.bold{font-weight:bold;}
+.lead{font-size:130%;}
+
+
+/*MIXINS*/
+.transition(@dur:0.5s, @style:ease-out){
+	transition:@dur @style; 
+	-moz-transition:@dur @style; 
+	-o-transition:@dur @style; 
+	-webkit-transition:@dur @style; 
+	-khtml-transition:@dur @style; 
+}
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+	-webkit-animation: @name @duration @delay @ease;
+	-o-animation: @name @duration @delay @ease;
+	-khtml-animation: @name @duration @delay @ease;
+	-moz-animation: @name @duration @delay @ease;
+	-ms-animation: @name @duration @delay @ease;
+}
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.gradient (@startColor: #eee, @endColor: white) {
+	background-color: @startColor;
+	background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background: -webkit-linear-gradient(top, @startColor, @endColor);
+	background: -moz-linear-gradient(top, @startColor, @endColor);
+	background: -ms-linear-gradient(top, @startColor, @endColor);
+	background: -o-linear-gradient(top, @startColor, @endColor);
+}
+.horizontal-gradient (@startColor: #eee, @endColor: white) {
+ 	background-color: @startColor;
+	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+	background-image: -moz-linear-gradient(left, @startColor, @endColor);
+	background-image: -ms-linear-gradient(left, @startColor, @endColor);
+	background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+.outline(@size:2px, @color:#000){
+	text-shadow:0px @size 0px @color, 
+	@size 0px 0px @color,
+	0px -@size 0px @color,
+	-@size 0px 0px @color,
+	@size @size 0px @color,
+	-@size -@size 0px @color,
+	@size -@size 0px @color,
+	-@size @size 0px @color
+	;
+	-moz-text-shadow:0px @size 0px @color, 
+	@size 0px 0px @color,
+	0px -@size 0px @color,
+	-@size 0px 0px @color,
+	@size @size 0px @color,
+	-@size -@size 0px @color,
+	@size -@size 0px @color,
+	-@size @size 0px @color
+	;
+	-webkit-text-shadow:0px @size 0px @color, 
+	@size 0px 0px @color,
+	0px -@size 0px @color,
+	-@size 0px 0px @color,
+	@size @size 0px @color,
+	-@size -@size 0px @color,
+	@size -@size 0px @color,
+	-@size @size 0px @color
+	;
+}
+
+
+/*CUSTOM CSS SECTION*/
+body{background:#f7f7f7; background-size:cover; -moz-background-size:cover;}
+
+body.loginBody{background:url(../img/background.jpg) no-repeat center fixed;}
+
+#loginBox{background:#f9f9f9; border:1px solid #f5f5f5; padding:1em; margin:0px auto; max-width:400px; top:10%; position:relative;}
+
+main{
+	table{margin:.5em auto; background:#fcfcfc;}
+	.padd{margin:.5em auto;}
+	input[type=number]{text-align:right;}
+	fieldset .row{margin-bottom:.5em;}
+	.hmm{color:transparent;}
+
+}
+
+.show_on_print{display:none;}
+@media print{
+	body{font-size:12px;}
+	.show_on_print{display:block;}
+	.hide_on_print{display:none;}
+	.container{width:100%;}
+}
